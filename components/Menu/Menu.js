@@ -73,9 +73,9 @@ function Menu () {
         {redirectUserPage === "/user-page" &&
           <span className={styles.items} onClick={handleLogout}>
             <li>
-              <FiLogOut />
+                  <FiLogOut />
 
-              Perfil
+                  Sair
             </li>
           </span>
         }
