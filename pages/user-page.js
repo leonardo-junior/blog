@@ -1,10 +1,10 @@
+//vendors
 import { useState, useEffect } from 'react'
 
-import Link from 'next/link'
-import Head from 'next/head'
-import Router from 'next/router'
+//components
+import Layout from '../components/Layout/Layout.js'
 
-export default function UserPage () {
+function UserPage () {
   const [allData, setAllData] = useState([])
   const [indexUser, setIndexUser] = useState()
 
@@ -16,7 +16,7 @@ export default function UserPage () {
     setAllData(data)
   },[])
 
-  const name = allData[indexUser]?.name || ''
+  const name = allData[indexUser]?.name
 
   function deletePost(key, index){
     const deletedPost= allData[key].post.filter((val, pos)=> index !== pos)
@@ -42,24 +42,14 @@ export default function UserPage () {
     )
   }).reverse()
 
-  function handleLogout (){
-    localStorage.setItem('Logged', 'false');
-    Router.push('/')
-  }
-
   return (
-    <div>
-      <Head>
-        <title>User Page</title>
-        <meta name="description" content="User page" />
-        <link rel="icon" href="images/favicon.ico" />
-      </Head>
+    <Layout title={'Página do usuário'} description={'Página do usuário'}>
       <main>
-        <Link href='/'><a>Página Inicial</a></Link>
-        <button onClick={handleLogout}>Logout</button>
         <h1>Olá, {name}</h1>
         <h2>{dataPosts}</h2>
       </main>
-    </div>
+    </Layout>
   )
 }
+
+export default UserPage

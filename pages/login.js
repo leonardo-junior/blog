@@ -1,17 +1,16 @@
 //vendors
 import { useState, useEffect } from 'react';
-import Link from 'next/link'
-import Head from 'next/head'
 import Router from 'next/router'
 
 //components
 import Login from '../components/login.js'
-import Form from '../components/form-new-user.js'
+import Layout from '../components/Layout/Layout.js'
+import Form from '../components/Form.js'
 
 //styles
-import styles from '../styles/form.module.css';
+import styles from '../styles/Login.module.css';
 
-export default function UserPage () {
+function LoginPage () {
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
   const [formValues, setFormValues] = useState({social:'twitter'});
@@ -32,7 +31,7 @@ export default function UserPage () {
     if(succesfullAcess){
       const save = JSON.stringify( [ true, formValues.emailLogin ] );
       localStorage.setItem('Logged', save);
-      Router.push('/userPage')
+      Router.push('/user-page')
       console.log('logado')
     }else{console.log('erro')}
   }
@@ -68,28 +67,26 @@ export default function UserPage () {
   }
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Account</title>
-        <meta name="description" content="User create Log or Log in" />
-        <link rel="icon" href="images/favicon.ico" />
-      </Head>
+      <Layout title='Área de Login' description='User crete Log or Login'>
+        <h1>Área de Login</h1>
 
-      <Link href='/'><a>Initial Page</a></Link>
+        <main className={styles.login}>
+          <Login
+            handleChange={handleChange}
+            handleSubmitLogin={handleSubmitLogin}
+            handleLogout={handleLogout}
+            formValues={formValues}
+          />
 
-      <Form
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        message={message}
-        formValues={formValues}
-      />
-
-      <Login
-        handleChange={handleChange}
-        handleSubmitLogin={handleSubmitLogin}
-        handleLogout={handleLogout}
-        formValues={formValues}
-      />
-    </div>
+          <Form
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            message={message}
+            formValues={formValues}
+          />
+        </main>
+      </Layout>
   )
 }
+
+export default LoginPage

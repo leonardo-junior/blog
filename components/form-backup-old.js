@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Router from 'next/router'
 import styles from '../styles/form.module.css';
 
-import Login from '../components/login.js'
+import Login from './login.js'
 import Form from '../components/formulario.js'
 
 export default function UserPage () {

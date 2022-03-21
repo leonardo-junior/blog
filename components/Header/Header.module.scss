@@ -1,0 +1,14 @@
+.container{
+  display: flex;
+  height: 4rem;
+  background-color: antiquewhite;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 0 1rem;
+  width: 100%;
+  max-width: 1250px;
+}

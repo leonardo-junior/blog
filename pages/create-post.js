@@ -1,9 +1,10 @@
+//vendors
 import {useState, useEffect} from 'react'
 
-import Head from 'next/head'
-import Link from 'next/link'
+//components
+import Layout from '../components/Layout/Layout.js'
 
-export default function CreatePost() {
+function CreatePost() {
   const [data, setData] = useState([])
   const [indexUser, setIndexUser] = useState([])
   const [post, setPost] = useState({})
@@ -58,30 +59,12 @@ export default function CreatePost() {
   }
 
   return (
-    <div>
-      <Head>
-        <title>Create Post</title>
-        <meta name="description" content="Generate post user" />
-        <link rel="icon" href="images/favicon.ico" />
-      </Head>
-      <nav>
-        <Link href="/" >
-          <a>
-            Página Inicial
-          </a>
-        </Link>
-        {needLogin&&
-          <Link href="/form" >
-          <a>
-            Login
-          </a>
-        </Link>
-        }
-      </nav>
+    <Layout title={'Criar Postagem'} description={'Área de criação de postagem'}>
       <main>
         <form onSubmit={handleSubmit} >
           <p>Título</p>
           <input type="text" name="titulo" value={post.titulo || ''} onChange={handleChange} required/>
+
           <p>Post</p>
           <textarea name='text'
             cols="45"
@@ -90,10 +73,14 @@ export default function CreatePost() {
             onChange={handleChange}
             required
           />
+
           <button type='submit' onSubmit={handleSubmit}>Postar</button>
         </form>
+
         <h2>{message}</h2>
       </main>
-    </div>
+    </Layout>
   )
 }
+
+export default CreatePost

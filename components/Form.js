@@ -1,6 +1,6 @@
 import styles from '../styles/form-new-user.module.css';
 
-export default function  Formulario(props) {
+function  Form(props) {
   return(
     <main className={styles.container}>
       <h1>Criar Perfil</h1>
@@ -48,3 +48,5 @@ export default function  Formulario(props) {
   </main>
   )
 }
+
+export default Form

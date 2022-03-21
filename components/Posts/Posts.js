@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
-import styles from '../styles/blog-posts.module.css'
+import styles from './Posts.module.scss'
 
-export default function Posts() {
+function Posts() {
   const [allData, setAllData] = useState()
 
   useEffect(()=>{//pega dados local
@@ -15,7 +15,7 @@ export default function Posts() {
       return val.post
     })
     .sort((a,b)=>new Date(b.date)- new Date(a.date))
-    
+
     // .sort((a, b) => {
     //   return b.number.localeCompare(a.number)
     // })
@@ -43,3 +43,5 @@ export default function Posts() {
     </div>
   )
 }
+
+export default Posts

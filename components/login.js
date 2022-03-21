@@ -1,6 +1,6 @@
 import styles from '../styles/form-new-user.module.css';
 
-export default function Login (props) {
+function Login (props) {
     return (
     <main className={styles.container}>
       <h1>Logar</h1>
@@ -15,3 +15,5 @@ export default function Login (props) {
     </main>
   )
 }
+
+export default Login
