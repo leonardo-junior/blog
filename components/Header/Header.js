@@ -13,7 +13,9 @@ function Header(){
   return(
     <nav className={styles.container}>
       <div className={styles.content}>
-        <Link href="/"><a>Blog Page</a></Link>
+        <Link href="/">
+          <a>Blog Page</a>
+        </Link>
 
         <Menu />
       </div>

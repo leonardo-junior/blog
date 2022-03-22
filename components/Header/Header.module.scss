@@ -1,18 +1,18 @@
 .container{
   display: flex;
   height: 4rem;
-  background-color: antiquewhite;
+  background-color: #efe9e0;
 }
 
 .content {
   display: flex;
   align-items: center;
   margin: auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
   width: 100%;
-  max-width: 1250px;
+  max-width: 850px;
 
-  a{
+  a {
     font-family: Georgia (serif);
     font-size: 2rem;
     text-decoration: none;

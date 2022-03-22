@@ -1,8 +1,11 @@
-//vendors
+// vendors
 import {useState, useEffect} from 'react'
 
-//components
+// components
 import Layout from '../components/Layout/Layout.js'
+
+// styles
+import styles from '../styles/create-post.module.scss'
 
 function CreatePost() {
   const [data, setData] = useState([])
@@ -60,7 +63,7 @@ function CreatePost() {
 
   return (
     <Layout title={'Criar Postagem'} description={'Área de criação de postagem'}>
-      <main>
+      <main className={styles.container}>
         <form onSubmit={handleSubmit} >
           <p>Título</p>
           <input type="text" name="titulo" value={post.titulo || ''} onChange={handleChange} required/>

@@ -1,5 +1,10 @@
+// vendors
 import { useState, useEffect } from 'react'
 
+// components
+import Card from '../Card/Card';
+
+// styles
 import styles from './Posts.module.scss'
 
 function Posts() {
@@ -21,25 +26,17 @@ function Posts() {
     // })
 
   const dataPosts = postOnly?.map(( { titulo, text, date, author }, index )=>{
-  const day = new Date(date).toLocaleDateString()
-  const hour = new Date(date).toLocaleTimeString()
+    const day = new Date(date).toLocaleDateString()
+    // const hour = new Date(date).toLocaleTimeString()
+
     return (
-      <div key={index}>
-        <h1>{titulo}</h1>
-        <h2>{text}</h2>
-        <h4>{author}</h4>
-        <h4>{day}</h4>
-        <h4>{hour}</h4>
-      </div>
+      <Card titulo={titulo} text={text} author={author} day={day} key={index}/>
     )
   })
 
   return (
     <div className={styles.container}>
-      <h1>Últimos Posts</h1>
-      <div>
         {dataPosts}
-      </div>
     </div>
   )
 }

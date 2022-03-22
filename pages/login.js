@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import Router from 'next/router'
 
 //components
-import Login from '../components/login.js'
-import Layout from '../components/Layout/Layout.js'
-import Form from '../components/Form.js'
+import Login from '../components/Login/Login'
+import Layout from '../components/Layout/Layout'
+import Form from '../components/Form/Form'
 
 //styles
-import styles from '../styles/Login.module.css';
+import styles from '../styles/login.module.scss';
 
 function LoginPage () {
   const [data, setData] = useState([]);
@@ -68,7 +68,7 @@ function LoginPage () {
 
   return (
       <Layout title='Área de Login' description='User crete Log or Login'>
-        <h1>Área de Login</h1>
+        <h1 className={styles.text}> Área de Login</h1>
 
         <main className={styles.login}>
           <Login

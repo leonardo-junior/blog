@@ -1,4 +1,4 @@
-import styles from '../styles/form-new-user.module.css';
+import styles from '../Login/Login.module.scss';
 
 function Login (props) {
     return (
@@ -11,7 +11,6 @@ function Login (props) {
         <input type="text" name="passwordLogin" value={props.formValues.passwordLogin || ''} placeholder="Password" onChange={props.handleChange} />
         <button type="submit">Verificar</button>
       </form>
-      {/* <button onClick={props.handleLogout}>Logout</button> */}
     </main>
   )
 }

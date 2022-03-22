@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react'
 
 //components
 import Layout from '../components/Layout/Layout.js'
+import Card from '../components/Card/Card';
+
+//styles
+import styles from '../styles/user-page.module.scss'
 
 function UserPage () {
   const [allData, setAllData] = useState([])
@@ -27,26 +31,26 @@ function UserPage () {
     setAllData(actualData)
   }
 
-  const dataPosts = allData[indexUser]?.post?.map(({titulo, text, date}, index)=>{
+  const dataPosts = allData[indexUser]?.post?.map(({titulo, text, date, author}, index)=>{
     const day = new Date(date).toLocaleDateString()
-    const hour = new Date(date).toLocaleTimeString()
+
     return (
-      <div key={ index }>
-        <h1>{titulo}</h1>
-        <h2>{text}</h2>
-        <h3>{allData[indexUser].name}</h3>
-        <h4>{day}</h4>
-        <h4>{hour}</h4>
-        <button onClick={()=>deletePost(indexUser, index)}>Deletar Post</button>
-      </div>
+      <Card
+        titulo={titulo}
+        text={text}
+        author={author}
+        day={day}
+        key={index}
+        onClick={() => deletePost(indexUser, index)}
+      />
     )
   }).reverse()
 
   return (
-    <Layout title={'Página do usuário'} description={'Página do usuário'}>
-      <main>
+    <Layout title='Página do usuário' description='Página do usuário'>
+      <main className={styles.container}>
         <h1>Olá, {name}</h1>
-        <h2>{dataPosts}</h2>
+        {dataPosts}
       </main>
     </Layout>
   )
