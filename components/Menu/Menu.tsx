@@ -6,11 +6,10 @@ import Router from "next/router"
 import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
 import { FiLogOut } from 'react-icons/fi'
 
-
 //styles
 import styles from './Menu.module.scss'
 
-function Menu () {
+function Menu (): JSX.Element {
   const [isOpen, setIsOpen] = useState(false)
 
   function handleToggleMenu () {
@@ -19,8 +18,8 @@ function Menu () {
 
   const [redirectUserPage, setRedirectUserPage] = useState("/login");
 
-  useEffect(()=>{//pega dados local
-    const userLogged = JSON.parse(localStorage.getItem("Logged")) || false
+  useEffect(() => {//this logic is rudimentary, improve in future
+    const userLogged: [] | boolean = JSON.parse(localStorage.getItem("Logged")) || false
 
     if(userLogged[0]) {
       setRedirectUserPage("/user-page")
@@ -29,7 +28,7 @@ function Menu () {
     }
   },[])
 
-  function handleLogout (){
+  function handleLogout () {
     localStorage.setItem("Logged", "false")
     setRedirectUserPage("/login")
     Router.push("/")

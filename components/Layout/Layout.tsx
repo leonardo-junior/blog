@@ -8,7 +8,13 @@ import Footer from '../Footer/Footer'
 //styles
 import styles from './Layout.module.scss'
 
-function Layout({children, title, description}){
+type LayoutProps = {
+  title: string
+  description: string
+  children: React.ReactNode
+}
+
+function Layout ({ children, title, description }: LayoutProps ): JSX.Element {
   return(
     <>
       <Head>
@@ -17,13 +23,13 @@ function Layout({children, title, description}){
         <link rel="icon" href="images/favicon.ico" />
       </Head>
 
-     <div className={styles.container}>
-      <Header/>
+      <div className={styles.container}>
+        <Header/>
 
-      {children}
+        {children}
 
-      <Footer/>
-     </div>
+        <Footer/>
+      </div>
     </>
   )
 }

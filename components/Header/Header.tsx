@@ -1,15 +1,13 @@
 //vendors
-// import { useState, useEffect } from "react"
 import Link from "next/link"
-// import Router from "next/router"
 
 //components
-import Menu from '../Menu/Menu.js'
+import Menu from '../Menu/Menu'
 
 //styles
 import styles from '../Header/Header.module.scss'
 
-function Header(){
+function Header (): JSX.Element {
   return(
     <nav className={styles.container}>
       <div className={styles.content}>

@@ -1,10 +1,18 @@
 // vendors
-import {AiTwotoneDelete} from 'react-icons/ai'
+import { AiTwotoneDelete } from 'react-icons/ai'
 
 // styles
 import styles from './Card.module.scss'
 
-function Card ({titulo, text, author, day, onClick}) {
+type CardProps = {
+  titulo: string
+  text: string
+  author: string
+  day: string
+  onClick?: () => void
+}
+
+function Card ({ titulo, text, author, day, onClick }: CardProps): JSX.Element {
   return (
     <div className={styles.card}>
       <div>
@@ -12,7 +20,8 @@ function Card ({titulo, text, author, day, onClick}) {
         {onClick &&
           <button onClick={onClick}>
             <AiTwotoneDelete />
-          </button>}
+          </button>
+        }
       </div>
       <p>{text}</p>
       <span> {`${author} | postado em ${day}`} </span>
