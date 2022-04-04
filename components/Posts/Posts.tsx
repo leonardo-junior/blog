@@ -10,7 +10,7 @@ import { LoginProps, PostsProps } from '../../typings/getTypes'
 // styles
 import styles from './Posts.module.scss'
 
-function Posts() {
+function Posts ():JSX.Element {
   const [allData, setAllData] = useState<LoginProps[]>([])
 
   useEffect(() => {//pega dados local
