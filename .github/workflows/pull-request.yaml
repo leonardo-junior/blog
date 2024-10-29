@@ -19,14 +19,22 @@ jobs:
       - name: Print client payload values
         run: 'echo "Client Payload: ${{ toJson(github.event.client_payload) }}"'
 
-      - name: Update PR status
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { pr_number } = context.payload.client_payload;
-            github.rest.issues.createComment({
-              owner: 'leonardo-junior',
-              repo: 'utiLive',
-              issue_number: pr_number,
-              body: 'E2E tests completed successfully'
-            });
+  example_job:
+    runs-on: ubuntu-latest
+    outputs:
+      custom_value: ${{ github.event.client_payload.pr_repo }}
+    steps:
+      - name: Set custom output
+        run: echo "custom_value=${{ github.event.client_payload.pr_repo }}" >> $GITHUB_ENV
+
+      # - name: Update PR status
+      #   uses: actions/github-script@v6
+      #   with:
+      #     script: |
+      #       const { pr_number } = context.payload.client_payload;
+      #       github.rest.issues.createComment({
+      #         owner: 'leonardo-junior',
+      #         repo: 'utiLive',
+      #         issue_number: pr_number,
+      #         body: 'E2E tests completed successfully'
+      #       });
